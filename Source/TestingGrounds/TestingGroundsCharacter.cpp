@@ -178,6 +178,8 @@ void ATestingGroundsCharacter::OnFire()
 			AnimInstance->Montage_Play(FireAnimation, 1.f);
 		}
 	}
+
+	MakeNoise();
 }
 
 void ATestingGroundsCharacter::OnResetVR()
