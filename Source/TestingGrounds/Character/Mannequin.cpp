@@ -14,7 +14,7 @@ AMannequin::AMannequin()
 	FirstPersonCameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("FirstPersonCameraComponent"));
 	FirstPersonCameraComponent->SetupAttachment(GetCapsuleComponent());
 	FirstPersonCameraComponent->RelativeLocation = FVector(-39.56f, 1.75f, 64.f);
-	// FirstPersonCameraComponent->bUsePawnControlRotation = true;
+	FirstPersonCameraComponent->bUsePawnControlRotation = true;
 	
 	//Create arms mesh to FP Character
 	Mesh1P = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("Mesh1p"));
@@ -40,10 +40,10 @@ void AMannequin::BeginPlay()
 		return;
 	}
 
+	Mesh1P->bOnlyOwnerSee = true;
 	Gun = GetWorld()->SpawnActor<AGun>(GunBlueprint);
 	Gun->AttachToComponent(Mesh1P, FAttachmentTransformRules(EAttachmentRule::SnapToTarget,true),TEXT("GripPoint"));
 	Gun->AnimInstance = Mesh1P->GetAnimInstance();
-
 	
 }
 
