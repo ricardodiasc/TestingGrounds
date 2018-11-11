@@ -27,9 +27,22 @@ public:
 	UFUNCTION(BlueprintCallable, Category="Weapon")
 	void PullTrigger();
 
-
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+	virtual void UnPossessed() override;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Gameplay)
+	class UAnimMontage* FireAnimation1P;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Gameplay)
+	class UAnimMontage* FireAnimation3P;
+
+
+	/**
+	 * Animation instances are in each mesh anim instance property
+	 */
+
 private:
 
 	UPROPERTY(VisibleDefaultsOnly, Category="Mesh")
